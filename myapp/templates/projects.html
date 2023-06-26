@@ -1,0 +1,17 @@
+<!-- template.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados JSON</title>
+</head>
+<body>
+    <h1>Resultados JSON</h1>
+    
+    <ul>
+        {% for item in context %}
+            <li>{{ item.id }} - {{ item.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

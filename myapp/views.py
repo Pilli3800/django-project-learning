@@ -11,8 +11,10 @@ def index(request):
 
 
 def hello(request, username):
+    context = {'username' : username}
     print(username)
-    return HttpResponse("<h1>Hello %s</h1>" % username)
+    return render(request, 'hello.html', context)
+    #return HttpResponse("<h1>Hello %s</h1>" % username)
 
 
 def about(request):
@@ -22,7 +24,6 @@ def about(request):
 def projects(request):
     projects = list(Project.objects.values())
     return JsonResponse(projects, safe=False)
-
 
 def tasks(request, title):
     task = get_object_or_404(Task, title=title)
